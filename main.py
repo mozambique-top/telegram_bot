@@ -13,7 +13,7 @@ GOOGLE_SHEETS_ID = '1kPZwQaWTLbfX334m6ux7ydsHVZzxuKqA5iVn25f0XZ4'
 # Укажите токен вашего Telegram-бота
 TELEGRAM_TOKEN = '6308490851:AAE-4tciE3Gn0oNgjz7IeqMbRsIxWuJs7Rs'
 
-bot = Bot(token=TELEGRAM_TOKEN)
+
 
 # Создаем экземпляр для работы с Google Sheets
 credentials = ServiceAccountCredentials.from_json_keyfile_name(GOOGLE_SHEETS_CREDS)
@@ -21,7 +21,7 @@ client = gspread.authorize(credentials)
 sheet = client.open_by_key(GOOGLE_SHEETS_ID).sheet1
 
 # Создаем экземпляр для работы с Telegram
-updater = Updater(bot=bot, )
+updater = Updater(token=TELEGRAM_TOKEN, use_context=True)
 dispatcher = updater.dispatcher
 
 
